@@ -60,7 +60,7 @@ async function generateAuthCookie(
   if (username && adminPassword) {
     authData.username = username;
     // 使用密码作为密钥对用户名进行签名
-    const signature = await generateSignature(username, ADMIN_PASSWORD);
+    const signature = await generateSignature(username, adminPassword);
     authData.signature = signature;
     authData.timestamp = Date.now(); // 添加时间戳防重放攻击
     authData.loginTime = Date.now(); // 添加登入时间记录
@@ -71,7 +71,7 @@ async function generateAuthCookie(
 
 export async function POST(req: NextRequest) {
   try {
-    const ADMIN_PASSWORD = process.env.PASSWORD || '123321';
+    const adminPassword = process.env.PASSWORD || '123321';
 
     // 本地 / localStorage 模式——仅校验固定密码
     if (STORAGE_TYPE === 'localstorage') {
@@ -80,7 +80,7 @@ export async function POST(req: NextRequest) {
         return NextResponse.json({ error: '密码不能为空' }, { status: 400 });
       }
 
-      if (password !== ADMIN_PASSWORD) {
+      if (password !== adminPassword) {
         return NextResponse.json(
           { ok: false, error: '密码错误' },
           { status: 401 },
@@ -120,7 +120,7 @@ export async function POST(req: NextRequest) {
     }
 
     // 可能是站长，直接读环境变量
-    if (username === process.env.USERNAME && password === ADMIN_PASSWORD) {
+    if (username === process.env.USERNAME && password === adminPassword) {
       // 验证成功，设置认证cookie
       const response = NextResponse.json({ ok: true });
       const cookieValue = await generateAuthCookie(
