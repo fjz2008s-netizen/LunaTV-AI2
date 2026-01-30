@@ -35,6 +35,11 @@ class LocalNoneStorage implements IStorage {
     _key: string,
     _record: PlayRecord,
   ): Promise<void> {}
+  async setPlayRecord(
+    _userName: string,
+    _key: string,
+    _record: PlayRecord,
+  ): Promise<void> {}
   async getAllPlayRecords(
     _userName: string,
   ): Promise<{ [key: string]: PlayRecord }> {
@@ -45,6 +50,11 @@ class LocalNoneStorage implements IStorage {
     return null;
   }
   async saveFavorite(
+    _userName: string,
+    _key: string,
+    _favorite: Favorite,
+  ): Promise<void> {}
+  async setFavorite(
     _userName: string,
     _key: string,
     _favorite: Favorite,
@@ -87,9 +97,7 @@ class LocalNoneStorage implements IStorage {
   async getUserByOidcSub(_oidcSub: string): Promise<string | null> {
     return null;
   }
-  async getUserInfoV2(
-    _userName: string,
-  ): Promise<{
+  async getUserInfoV2(_userName: string): Promise<{
     username: string;
     role: 'owner' | 'admin' | 'user';
     tags?: string[];
