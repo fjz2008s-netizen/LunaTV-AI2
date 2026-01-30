@@ -7,7 +7,7 @@ import { db } from '@/lib/db';
 import { AdminConfig } from './admin.types';
 
 export interface ApiSite {
-  key: string;
+  key?: string;
   api: string;
   name: string;
   detail?: string;
