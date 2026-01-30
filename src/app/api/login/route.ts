@@ -50,14 +50,14 @@ async function generateAuthCookie(
   includePassword = false,
 ): Promise<string> {
   const authData: any = { role: role || 'user' };
+  const adminPassword = process.env.PASSWORD || '123321';
 
   // 只在需要时包含 password
   if (includePassword && password) {
     authData.password = password;
   }
 
-  const ADMIN_PASSWORD = process.env.PASSWORD || '123321';
-  if (username && ADMIN_PASSWORD) {
+  if (username && adminPassword) {
     authData.username = username;
     // 使用密码作为密钥对用户名进行签名
     const signature = await generateSignature(username, ADMIN_PASSWORD);
@@ -81,18 +81,6 @@ export async function POST(req: NextRequest) {
       }
 
       if (password !== ADMIN_PASSWORD) {
-        return NextResponse.json(
-          { ok: false, error: '密码错误' },
-          { status: 401 },
-        );
-      }
-
-      const { password } = await req.json();
-      if (typeof password !== 'string') {
-        return NextResponse.json({ error: '密码不能为空' }, { status: 400 });
-      }
-
-      if (password !== envPassword) {
         return NextResponse.json(
           { ok: false, error: '密码错误' },
           { status: 401 },
@@ -132,7 +120,6 @@ export async function POST(req: NextRequest) {
     }
 
     // 可能是站长，直接读环境变量
-    const ADMIN_PASSWORD = process.env.PASSWORD || '123321';
     if (username === process.env.USERNAME && password === ADMIN_PASSWORD) {
       // 验证成功，设置认证cookie
       const response = NextResponse.json({ ok: true });
