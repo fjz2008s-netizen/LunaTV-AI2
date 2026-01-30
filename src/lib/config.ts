@@ -58,7 +58,7 @@ export const API_CONFIG = {
 export const DEFAULT_VIDEO_SOURCES: ConfigFileStruct = {
   cache_time: 7200,
   api_site: {
-    iqiyizyapi.com: {
+  "iqiyizyapi.com": {
       name: "爱奇艺",
       api: "https://iqiyizyapi.com/api.php/provide/vod",
       detail: "https://iqiyizyapi.com"
@@ -93,12 +93,12 @@ export const DEFAULT_VIDEO_SOURCES: ConfigFileStruct = {
       api: "http://caiji.dyttzyapi.com/api.php/provide/vod",
       detail: "http://caiji.dyttzyapi.com"
     },
-    www.maoyanzy.com: {
+    "www.maoyanzy.com": {
       name: "猫眼资源",
       api: "https://api.maoyanapi.top/api.php/provide/vod",
       detail: "https://www.maoyanzy.com"
     },
-    cj.lzcaiji.com: {
+    "cj.lzcaiji.com": {
       name: "量子资源",
       api: "https://cj.lzcaiji.com/api.php/provide/vod",
       detail: "https://cj.lzcaiji.com"
@@ -113,7 +113,7 @@ export const DEFAULT_VIDEO_SOURCES: ConfigFileStruct = {
       api: "https://jszyapi.com/api.php/provide/vod",
       detail: "https://jszyapi.com"
     },
-    www.moduzy.net: {
+    "www.moduzy.net": {
       name: "魔都资源",
       api: "https://www.mdzyapi.com/api.php/provide/vod",
       detail: "https://www.moduzy.net"
@@ -148,7 +148,7 @@ export const DEFAULT_VIDEO_SOURCES: ConfigFileStruct = {
       api: "https://api.wwzy.tv/api.php/provide/vod",
       detail: "https://api.wwzy.tv"
     },
-    www.subozy.com: {
+    "www.subozy.com": {
       name: "速播资源",
       api: "https://subocaiji.com/api.php/provide/vod",
       detail: "https://www.subozy.com"
@@ -163,32 +163,32 @@ export const DEFAULT_VIDEO_SOURCES: ConfigFileStruct = {
       api: "https://p2100.net/api.php/provide/vod",
       detail: "https://p2100.net"
     },
-    api.ukuapi88.com: {
+    "api.ukuapi88.com": {
       name: "U酷影视",
       api: "https://api.ukuapi88.com/api.php/provide/vod",
       detail: "https://www.ukuzy.com"
     },
-    api.guangsuapi.com: {
+    "api.guangsuapi.com": {
       name: "光速资源",
       api: "https://api.guangsuapi.com/api.php/provide/vod",
       detail: "https://api.guangsuapi.com"
     },
-    www.hongniuzy.com: {
+    "www.hongniuzy.com": {
       name: "红牛资源",
       api: "https://www.hongniuzy2.com/api.php/provide/vod",
       detail: "https://www.hongniuzy.com"
     },
-    caiji.moduapi.cc: {
+    "caiji.moduapi.cc": {
       name: "魔都动漫",
       api: "https://caiji.moduapi.cc/api.php/provide/vod",
       detail: "https://caiji.moduapi.cc"
     },
-    www.ryzyw.com: {
+    "www.ryzyw.com": {
       name: "如意资源",
       api: "https://www.ryzyw.com/api.php/provide/vod",
       detail: "https://www.ryzyw.com"
     },
-    www.haohuazy.com: {
+    "www.haohuazy.com": {
       name: "豪华资源",
       api: "https://hhzyapi.com/api.php/provide/vod",
       detail: "https://www.haohuazy.com"
